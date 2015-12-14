@@ -22,19 +22,19 @@ export default function useSimpleScroll(createHistory) {
       return
     }
 
-    this.animate(window, 0, 100);
+    animate(window, 0, 100)
   }
   function animate(element, to, duration) {
-    if (duration <= 0) return;
-    const self = this;
-    const difference = to - element.scrollTop;
-    const perTick = difference / duration * 10;
+    if (duration <= 0) return
+    const self = this
+    const difference = to - element.scrollTop
+    const perTick = difference / duration * 10
 
     setTimeout(function timeout() {
-      element.scrollTop = element.scrollTop + perTick;
-      if (element.scrollTop === to) return;
-      self.scrollTop(element, to, duration / 4);
-    }, 10);
+      element.scrollTop = element.scrollTop + perTick
+      if (element.scrollTop === to) return
+      self.scrollTop(element, to, duration / 4)
+    }, 10)
   }
 
   return createUseScroll(updateScroll)(createHistory)
